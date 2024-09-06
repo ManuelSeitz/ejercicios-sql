@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  sql_server:
+    image: mcr.microsoft.com/mssql/server
+    container_name: sql-server-container
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Manuel#22
+    ports:
+      - '1433:1433'
