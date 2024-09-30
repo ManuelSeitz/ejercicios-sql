@@ -27,7 +27,7 @@ CREATE TABLE Factura
   numero INT IDENTITY PRIMARY KEY,
   fecha DATE DEFAULT GETDATE(),
   id_cliente INT FOREIGN KEY REFERENCES Cliente(id),
-  total FLOAT(2) NOT NULL
+  total MONEY NOT NULL
 );
 
 CREATE TABLE Rubro
@@ -44,14 +44,14 @@ CREATE TABLE Producto
   id_rubro INT FOREIGN KEY REFERENCES Rubro(id),
   stock INT NOT NULL,
   pto_reposicion VARCHAR(100),
-  precio FLOAT(2) NOT NULL
+  precio MONEY NOT NULL
 );
 
 CREATE TABLE Detalle
 (
   num_factura INT NOT NULL,
   id_producto INT NOT NULL,
-  p_unit FLOAT(2) NOT NULL,
+  p_unit MONEY NOT NULL,
   cant INT NOT NULL,
   CONSTRAINT id_detalle PRIMARY KEY (num_factura, id_producto),
   FOREIGN KEY (num_factura) REFERENCES Factura(numero),
